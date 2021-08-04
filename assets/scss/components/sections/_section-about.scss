@@ -1,0 +1,115 @@
+@use "../../presets/" as *;
+@use "../../mixins/" as *;
+
+.about {
+  background-color: $color-gray-light;
+  letter-spacing: 0.055em;
+
+  &__container {
+    @extend %container;
+    display: grid;
+
+    @include lg-min {
+      gap: 100px;
+      grid-template-columns: 1fr 271px;
+    }
+
+    @include lg-md {
+      gap: 40px;
+      grid-template-columns: 1fr 271px;
+    }
+
+    @include md-sm {
+      gap: 20px;
+      grid-template-columns: 1fr 236px;
+    }
+
+    @include sm {
+      gap: 20px;
+      grid-template-columns: 1fr;
+    }
+  }
+  @include lg-min {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  @include lg-md {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  @include md {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  &__content p {
+    font-weight: 400;
+    position: relative;
+
+    @include lg-min {
+      font-size: 1.125rem;
+      margin: 18px 0 18px 0;
+    }
+
+    @include lg-md {
+      font-size: 1rem;
+      margin: 16px 0 16px 0;
+    }
+
+    @include md {
+      font-size: 1rem;
+    }
+  }
+
+  &__content p:first-of-type {
+    @include lg-min {
+      margin: -5px 0 18px 0;
+    }
+
+    @include lg {
+      margin: -5px 0 16px 0;
+    }
+  }
+
+  &__content p:last-of-type {
+    margin: 0;
+  }
+
+  &__content p:first-of-type::before {
+    position: absolute;
+    top: 0;
+    width: 2px;
+    height: 200px;
+    content: "";
+    background-color: rgba(#707070, 0.1);
+
+    @include lg-min {
+      right: -50px;
+    }
+
+    @include lg-md {
+      right: -20px;
+    }
+
+    @include md {
+      right: -10px;
+    }
+
+    @include sm {
+      display: none;
+    }
+  }
+
+  &__img {
+    display: grid;
+    justify-items: center;
+    align-content: center;
+  }
+
+  &__img img {
+    max-height: 480px;
+    max-width: 100%;
+  }
+}

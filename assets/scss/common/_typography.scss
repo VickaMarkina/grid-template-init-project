@@ -1,0 +1,94 @@
+@use "../presets/" as *;
+@use "../mixins/" as *;
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: $font-main;
+  font-size: $font-size;
+  color: $color-gray;
+  overflow-y: scroll;
+}
+
+h1 {
+  font-family: $font-header;
+  color: $color-light;
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: 0.08em;
+  line-height: 1.2em;
+
+  @include lg-min {
+    font-size: 3.75rem;
+  }
+
+  @include lg-md {
+    font-size: 2.5rem;
+  }
+
+  @include md {
+    font-size: 1.875rem;
+  }
+}
+
+h2 {
+  color: $color-primary;
+  font-weight: 700;
+  font-family: "Roboto Slab";
+  letter-spacing: 0.1em;
+  line-height: 1.2em;
+
+  @include lg-min {
+    font-size: 2.5rem;
+    margin: 0 0 3rem 0;
+  }
+  @include lg-md {
+    font-size: 2rem;
+    margin: 0 0 2.625rem 0;
+  }
+  @include md {
+    font-size: 1.5rem;
+    margin: 0 0 2.25rem 0;
+  }
+  @include sm {
+    text-align: center;
+  }
+}
+
+h3 {
+  letter-spacing: 0.125rem;
+  font-weight: 700;
+
+  @include md-min {
+    font-size: 1.25rem;
+  }
+
+  @include md {
+    font-size: 1.125rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $color-light;
+}
+
+input::placeholder {
+  font-size: 1.125rem;
+  font-weight: 350;
+  letter-spacing: 0.15em;
+  color: rgba($color-light, 0.31);
+  font-family: "Roboto";
+  line-height: 1.15rem;
+  transition: 0.5s;
+
+  &:focus,
+  &:hover,
+  &:active {
+    color: rgba($color-light, 1);
+  }
+}

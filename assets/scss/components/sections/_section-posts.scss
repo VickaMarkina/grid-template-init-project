@@ -1,0 +1,113 @@
+@use "../../presets/" as *;
+@use "../../mixins/" as *;
+
+.post {
+  @include lg-min {
+    padding: 100px 0 100px 0;
+  }
+
+  @include lg-md {
+    padding: 80px 0 80px 0;
+  }
+
+  @include md {
+    padding: 60px 0 60px 0;
+  }
+
+  &__container {
+    @extend %container;
+  }
+  &__grid {
+    display: grid;
+    gap: $gap;
+    padding: 0 0 $gap;
+
+    @include lg-min {
+      grid-template-areas: "a1 a1 a2 a3" "a4 a5 a6 a6";
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include lg-md {
+      grid-template-areas: "a1 a1 a2" "a3 a4 a4" "a5 a5 a6";
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include md-sm {
+      grid-template-areas: "a1 a2" "a3 a4" "a5 a6";
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include sm {
+      grid-template-areas: "a1" "a2" "a3" "a4" "a5" "a6";
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  &-item {
+    background-color: #f2f2f2;
+    position: relative;
+
+    &:hover {
+      background-color: #d8d8d8;
+      transition: 0.5s;
+
+      .post-item__caption {
+        color: $color-primary;
+        transition: 0.5s;
+      }
+
+      .post-item__image img {
+        transform: scale(1.1);
+        transition: 0.5s;
+      }
+    }
+
+    &__link {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      height: 100%;
+      grid-template-rows: 300px 1fr;
+    }
+
+    &__caption {
+      color: $color-gray;
+      padding: $gap;
+      transition: 1s;
+      display: grid;
+      align-content: center;
+      text-align: center;
+
+      h3 {
+        letter-spacing: 0.05em;
+        font-size: 1.125rem;
+        font-family: "Roboto Slab", serif;
+      }
+    }
+
+    &__image {
+      transition: 0.5s;
+      transition: 1s;
+      display: flex;
+      overflow: hidden;
+      align-content: center;
+      justify-content: center;
+    }
+
+    &__image img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@for $i from 1 through 6 {
+  .post-item:nth-of-type(#{$i}) {
+    grid-area: a#{$i};
+  }
+}
